@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mariam Odutayo | IT Student Portfolio</title>
+<meta name="description" content="Portfolio of Mariam Odutayo, IT student at Seneca Polytechnic focused on cloud, systems and automation.">
+<style>
+  :root{
+    --bg:#070b16; --bg2:#0d1324; --card:rgba(255,255,255,.05); --line:rgba(255,255,255,.10);
+    --ink:#eef2ff; --muted:#a3aec7; --a:#6c8cff; --b:#b06cff; --c:#2de2c3; --d:#ffb454;
+    --glow:0 10px 40px rgba(108,140,255,.25);
+  }
+  :root[data-theme="light"]{
+    --bg:#f5f7fd; --bg2:#ffffff; --card:rgba(255,255,255,.85); --line:rgba(20,30,70,.12);
+    --ink:#121a33; --muted:#51607f; --glow:0 10px 30px rgba(80,100,200,.18);
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;
+    font-family:-apple-system,"Segoe UI",Calibri,Helvetica,Arial,sans-serif}
+  .blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.35;z-index:0;pointer-events:none}
+  .b1{width:420px;height:420px;background:var(--a);top:-120px;left:-100px;animation:float 14s ease-in-out infinite}
+  .b2{width:380px;height:380px;background:var(--b);top:30%;right:-140px;animation:float 18s ease-in-out infinite reverse}
+  .b3{width:320px;height:320px;background:var(--c);bottom:-120px;left:20%;opacity:.22;animation:float 16s ease-in-out infinite}
+  @keyframes float{50%{transform:translate(30px,40px)}}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+  nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .logo{font-weight:800;letter-spacing:.02em}
+  .logo span{background:linear-gradient(90deg,var(--a),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .links{display:flex;gap:18px;align-items:center;font-size:.9rem}
+  .links a{color:var(--muted);text-decoration:none} .links a:hover{color:var(--ink)}
+  .toggle{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:.8rem}
+  @media(max-width:640px){.links a{display:none}}
+  .hero{padding:90px 0 70px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+  @media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:56px}}
+  .hi{display:inline-block;padding:6px 14px;border:1px solid var(--line);background:var(--card);border-radius:999px;font-size:.85rem;color:var(--muted)}
+  h1{font-size:clamp(2.4rem,7vw,4.4rem);line-height:1.04;margin:16px 0 10px;letter-spacing:-.02em}
+  .grad{background:linear-gradient(90deg,var(--a),var(--b),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .role{font-size:1.3rem;color:var(--muted);min-height:2em}
+  .role b{color:var(--ink)} .cursor{display:inline-block;width:2px;height:1.1em;background:var(--c);margin-left:3px;vertical-align:-3px;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .intro{max-width:560px;color:var(--muted);margin:14px 0 24px}
+  .btns{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{padding:12px 22px;border-radius:12px;text-decoration:none;font-weight:600;font-size:.95rem;border:1px solid var(--line);color:var(--ink);background:var(--card);transition:.25s}
+  .btn.p{background:linear-gradient(135deg,var(--a),var(--b));border:none;color:#fff;box-shadow:var(--glow)}
+  .btn:hover{transform:translateY(-3px)}
+  .avatar{aspect-ratio:1;max-width:320px;justify-self:center;width:100%;border-radius:32px;position:relative;
+    background:linear-gradient(135deg,var(--a),var(--b) 55%,var(--c));box-shadow:var(--glow);display:grid;place-items:center;transform:rotate(3deg)}
+  .avatar::after{content:"";position:absolute;inset:10px;border-radius:24px;background:var(--bg2);opacity:.9}
+  .avatar span{position:relative;z-index:1;font-size:5.5rem;font-weight:800}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:20px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
+  .stat b{display:block;font-size:2rem} .stat small{color:var(--muted)}
+  section{padding:56px 0}
+  .sec-t{display:flex;align-items:center;gap:12px;margin:0 0 26px}
+  .sec-t h2{margin:0;font-size:1.8rem} .sec-t i{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+  .eyebrow{color:var(--c);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+  .about{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+  @media(max-width:820px){.about{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;backdrop-filter:blur(8px);transition:.3s}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--glow);border-color:color-mix(in srgb,var(--a) 50%,var(--line))}
+  .card h3{margin:0 0 6px;font-size:1.15rem} .card p{margin:6px 0;color:var(--muted)}
+  .proj{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+  .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;margin-bottom:12px;background:linear-gradient(135deg,var(--a),var(--b))}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+  .chip{font-size:.78rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card)}
+  .lnk{color:var(--c);text-decoration:none;font-weight:600;font-size:.9rem;margin-right:14px}
+  .lnk:hover{text-decoration:underline}
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .skills .chip{color:var(--ink)}
+  .tl{border-left:2px solid var(--line);padding-left:22px;display:grid;gap:18px;margin-left:6px}
+  .tl .card{position:relative} .tl .card::before{content:"";position:absolute;left:-31px;top:26px;width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 5px color-mix(in srgb,var(--c) 25%,transparent)}
+  .when{font-size:.82rem;color:var(--c);font-weight:700}
+  .dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:18px}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+  @media(max-width:640px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+  .kpi b{font-size:1.7rem;display:block} .kpi small{color:var(--muted);font-size:.75rem}
+  .bar{display:grid;grid-template-columns:110px 1fr 24px;align-items:center;gap:10px;margin:9px 0;font-size:.85rem}
+  .track{height:10px;background:var(--line);border-radius:99px;overflow:hidden}
+  .fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--a),var(--c));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+  .note{font-size:.82rem;color:var(--muted);margin-top:12px}
+  .contact{text-align:center}
+  .contact .card{padding:40px 22px;background:linear-gradient(135deg,color-mix(in srgb,var(--a) 22%,var(--card)),color-mix(in srgb,var(--b) 18%,var(--card)))}
+  footer{text-align:center;color:var(--muted);font-size:.85rem;padding:30px 20px 50px;position:relative;z-index:1}
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s} .rv.on{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+<nav><div class="wrap">
+  <div class="logo">Mariam<span> Odutayo</span></div>
+  <div class="links">
+    <a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    <button class="toggle" id="theme" aria-label="Switch between dark and light theme">Light / Dark</button>
+  </div>
+</div></nav>
+
+<header class="wrap hero">
+  <div>
+    <span class="hi">Welcome to Mariam's Home</span>
+    <h1>Hi, I am <span class="grad">Mariam</span></h1>
+    <div class="role">I am into <b id="typed"></b><span class="cursor"></span></div>
+    <p class="intro">I am a fourth-year Honours Bachelor of IT Design and Management student at Seneca Polytechnic in Mississauga. I enjoy building cloud and automation projects, solving problems for users, and explaining technical work clearly. I am looking for a Winter 2027 co-op.</p>
+    <div class="btns">
+      <a class="btn p" href="#projects">See my projects</a>
+      <a class="btn" href="https://github.com/mariam-odutayo">GitHub</a>
+      <a class="btn" href="mailto:modutayo@myseneca.ca">Email me</a>
+    </div>
+  </div>
+  <div class="avatar" aria-hidden="true"><span>MO</span></div>
+</header>
+
+<main class="wrap">
+  <div class="stats rv">
+    <div class="stat"><b>4th</b><small>year IT student</small></div>
+    <div class="stat"><b>Azure</b><small>cloud automation</small></div>
+    <div class="stat"><b>2022</b><small>customer-facing work since</small></div>
+    <div class="stat"><b>W 2027</b><small>seeking co-op</small></div>
+  </div>
+
+  <section id="about" class="rv">
+    <div class="sec-t"><div><div class="eyebrow">About me</div><h2>A little about me</h2></div><i></i></div>
+    <div class="about">
+      <div class="card">
+        <h3>Who I am</h3>
+        <p>I study Information Technology Design and Management at Seneca Polytechnic. My coursework covers cloud administration, system automation, software defined networks and security.</p>
+        <p>I work with customers every day at OTG Management, where I troubleshoot ordering, website, scanning and payment issues and guide people who are not technical. That work taught me to listen first and explain clearly.</p>
+        <p>I like projects where a manual task becomes an automatic one, and I document what I build so others can follow it.</p>
+      </div>
+      <div class="card">
+        <h3>Quick facts</h3>
+        <p><b>Location:</b> Mississauga, ON</p>
+        <p><b>School:</b> Seneca Polytechnic</p>
+        <p><b>Program:</b> Honours Bachelor of IT Design and Management</p>
+        <p><b>Looking for:</b> Winter 2027 co-op in IT, cloud or systems</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="rv">
+    <div class="sec-t"><div><div class="eyebrow">Work</div><h2>Projects</h2></div><i></i></div>
+    <div class="proj">
+      <article class="card">
+        <div class="ico">&#9729;</div>
+        <h3>Azure Logic App File Processing</h3>
+        <p>An event-driven workflow on Microsoft Azure. A file uploaded to a storage container is renamed with a "processed-" prefix, moved to a second container and confirmed by email. I built it myself for my OPS310 course.</p>
+        <div class="chips"><span class="chip">Azure Logic Apps</span><span class="chip">Azure Storage</span><span class="chip">GitHub</span></div>
+        <a class="lnk" href="https://github.com/mariam-odutayo/ops310">Code</a><a class="lnk" href="https://youtu.be/pzWG0sOfFTI">Demo video</a>
+      </article>
+      <article class="card">
+        <div class="ico">&#128161;</div>
+        <h3>InnWIL: Bumby Wool Brand Strategy</h3>
+        <p>As a student consultant in a six-member team, I mapped the seven-stage customer journey, proposed an AI-readable product knowledge hub, and wrote an implementation plan with a timeline and ROI measures.</p>
+        <div class="chips"><span class="chip">Customer journey mapping</span><span class="chip">Planning</span><span class="chip">Presentations</span></div>
+        <p class="note">Seneca Polytechnic, Summer 2026</p>
+      </article>
+      <article class="card">
+        <div class="ico">&#128274;</div>
+        <h3>Network Security and System Administration</h3>
+        <p>Configured and managed Windows Server and Linux environments (Ubuntu, Kali, Red Hat) and identified vulnerabilities through simulated security incidents and misconfigurations.</p>
+        <div class="chips"><span class="chip">Windows Server</span><span class="chip">Linux</span><span class="chip">Security</span></div>
+      </article>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <div class="eyebrow">Featured build</div>
+      <h3>IT Support Ticket Dashboard</h3>
+      <p>I turned a list of support tickets into numbers and charts using plain HTML, CSS and JavaScript. The data below is sample data that I created for practice.</p>
+      <div class="kpis">
+        <div class="kpi"><b id="k1">0</b><small>Total tickets</small></div>
+        <div class="kpi"><b id="k2">0</b><small>Still open</small></div>
+        <div class="kpi"><b id="k3">0</b><small>Resolved</small></div>
+        <div class="kpi"><b id="k4">0</b><small>Avg. hours to resolve</small></div>
+      </div>
+      <div class="dash">
+        <div><h3 style="font-size:1rem">By category</h3><div id="cat"></div></div>
+        <div><h3 style="font-size:1rem">By status</h3><div id="st"></div></div>
+      </div>
+      <p class="note">Sample data. Practice tickets, not real company data.</p>
+    </div>
+  </section>
+
+  <section id="skills" class="rv">
+    <div class="sec-t"><div><div class="eyebrow">Toolbox</div><h2>Skills</h2></div><i></i></div>
+    <div class="skills">
+      <div class="card"><h3>Cloud and automation</h3><div class="chips"><span class="chip">Microsoft Azure</span><span class="chip">Azure Logic Apps</span><span class="chip">VMware</span><span class="chip">Hyper-V</span><span class="chip">Virtual machines</span></div></div>
+      <div class="card"><h3>Scripting</h3><div class="chips"><span class="chip">PowerShell</span><span class="chip">Bash</span><span class="chip">Batch scripting</span></div></div>
+      <div class="card"><h3>Operating systems</h3><div class="chips"><span class="chip">Windows Server</span><span class="chip">Ubuntu</span><span class="chip">Red Hat</span><span class="chip">Kali</span><span class="chip">macOS</span></div></div>
+      <div class="card"><h3>Networking and security</h3><div class="chips"><span class="chip">LAN / WAN</span><span class="chip">Routing and switching</span><span class="chip">Cisco Packet Tracer</span><span class="chip">Access control</span><span class="chip">NIST / ISO</span></div></div>
+      <div class="card"><h3>Data and tools</h3><div class="chips"><span class="chip">MySQL</span><span class="chip">MongoDB basics</span><span class="chip">Microsoft Excel</span><span class="chip">Git and GitHub</span></div></div>
+      <div class="card"><h3>Support and people</h3><div class="chips"><span class="chip">Troubleshooting</span><span class="chip">User guidance</span><span class="chip">Documentation</span><span class="chip">Clear communication</span></div></div>
+    </div>
+  </section>
+
+  <section id="experience" class="rv">
+    <div class="sec-t"><div><div class="eyebrow">Journey</div><h2>Experience and education</h2></div><i></i></div>
+    <div class="tl">
+      <div class="card"><div class="when">Summer 2026</div><h3>Student Consultant, Innovation Work-Integrated Learning</h3><p>Seneca Polytechnic with Bumby Wool. Customer journey mapping, solution ideas, implementation plan, team presentations and final report.</p></div>
+      <div class="card"><div class="when">2022 to present</div><h3>Cashier and Customer Service</h3><p>OTG Management, Mississauga. Troubleshoot ordering, website, scanning and payment issues, and set up and maintain iPads and front-desk systems.</p></div>
+      <div class="card"><div class="when">2023 to 2027</div><h3>Honours Bachelor of IT Design and Management</h3><p>Seneca Polytechnic. President's Honour List (Fall 2023) and Hons Bachelor of IT Design and Management Scholarship.</p></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact rv">
+    <div class="card">
+      <div class="eyebrow">Let's talk</div>
+      <h2 style="font-size:2rem;margin:8px 0">Looking for a Winter 2027 co-op</h2>
+      <p style="color:var(--muted);max-width:520px;margin:0 auto 22px">If you have a role in IT, cloud or systems, I would be glad to hear from you.</p>
+      <div class="btns" style="justify-content:center">
+        <a class="btn p" href="mailto:modutayo@myseneca.ca">modutayo@myseneca.ca</a>
+        <a class="btn" href="https://github.com/mariam-odutayo">github.com/mariam-odutayo</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>Designed and built by Mariam Odutayo with HTML, CSS and JavaScript.</footer>
+
+<script>
+// Typing effect
+const words=["cloud","automation","systems","problem solving"]; let w=0,c=0,del=false; const el=document.getElementById("typed");
+(function tick(){const s=words[w]; el.textContent=s.slice(0,c);
+  if(!del&&c===s.length){del=true;return setTimeout(tick,1400)}
+  if(del&&c===0){del=false;w=(w+1)%words.length}
+  c+=del?-1:1; setTimeout(tick,del?45:90)})();
+
+// Theme toggle (saved when the browser allows it)
+const root=document.documentElement;
+try{const t=localStorage.getItem("theme"); if(t) root.dataset.theme=t;}catch(e){}
+document.getElementById("theme").onclick=()=>{const n=root.dataset.theme==="light"?"dark":"light"; root.dataset.theme=n; try{localStorage.setItem("theme",n)}catch(e){}};
+
+// Scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on"); if(e.target.id==="projects") draw();}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(x=>io.observe(x));
+
+// Sample ticket data for the dashboard
+const tickets=[
+ ["Password reset","Resolved",1],["Network","Resolved",6],["Software install","Resolved",3],["Hardware","Resolved",12],
+ ["Password reset","Resolved",1],["Email","Resolved",4],["Network","Resolved",8],["Software install","Resolved",2],
+ ["Hardware","In progress",0],["Email","Resolved",2],["Password reset","Resolved",1],["Network","In progress",0],
+ ["Software install","Open",0],["Email","Open",0],["Hardware","Open",0]];
+const done=tickets.filter(t=>t[1]==="Resolved");
+function tally(i){return tickets.reduce((o,t)=>(o[t[i]]=(o[t[i]]||0)+1,o),{})}
+function bars(id,data){const max=Math.max(...Object.values(data)); const box=document.getElementById(id);
+  box.innerHTML=Object.entries(data).map(([k,v])=>`<div class="bar"><span>${k}</span><div class="track"><div class="fill" data-w="${v/max*100}"></div></div><b>${v}</b></div>`).join("");}
+let drawn=false;
+function draw(){ if(drawn)return; drawn=true;
+  k1.textContent=tickets.length; k2.textContent=tickets.length-done.length; k3.textContent=done.length;
+  k4.textContent=(done.reduce((s,t)=>s+t[2],0)/done.length).toFixed(1);
+  bars("cat",tally(0)); bars("st",tally(1));
+  requestAnimationFrame(()=>setTimeout(()=>document.querySelectorAll(".fill").forEach(f=>f.style.width=f.dataset.w+"%"),50));
+}
+</script>
+</body>
+</html>
